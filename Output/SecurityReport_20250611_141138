@@ -1,1 +1,407 @@
+Windows Security Configuration Audit Report
+Generated on: 2025-06-11 14:11:38
+----------------------------------------
+
+[1] Checking Guest Account Status...
+PASS: Guest account is disabled.
+
+[2] Checking User Account Control (UAC) Configuration...
+PASS: UAC is enabled.
+
+[3] Checking SMBv1 Status...
+PASS: SMBv1 is disabled.
+
+[4] Checking Remote Desktop (RDP) Settings...
+WARNING: RDP is enabled.
+PASS: Network Level Authentication (NLA) is enabled for RDP.
+
+[5] Checking Admin Shares...
+WARNING: Admin shares found: ADMIN$, C$, IPC$. Recommended to disable unnecessary shares via registry or Group Policy.
+
+[6] Checking Windows Firewall Status...
+WARNING: Firewall profile 'Domain' is disabled. Recommended to enable it with: Set-NetFirewallProfile -Name Domain -Enabled True
+WARNING: Firewall profile 'Private' is disabled. Recommended to enable it with: Set-NetFirewallProfile -Name Private -Enabled True
+WARNING: Firewall profile 'Public' is disabled. Recommended to enable it with: Set-NetFirewallProfile -Name Public -Enabled True
+
+[7] Checking Antivirus Status...
+Antivirus: Check Point Anti-Malware - Status: Enabled
+Antivirus: Windows Defender - Status: Disabled
+WARNING: Antivirus Windows Defender is disabled. Recommended to enable it.
+Antivirus: CrowdStrike Falcon Sensor - Status: Enabled
+
+[8] Checking Auto-Login Settings...
+PASS: Auto-Login is disabled or not configured.
+
+[9] Checking Password Policy...
+PASS: Minimum password length is 8 characters.
+ERROR: Failed to check password policy: Cannot convert the "System.Object[]" value of type "System.Object[]" to type "System.Int32".
+
+[10] Checking Unquoted Service Paths...
+WARNING: Found services with unquoted paths vulnerable to exploitation:
+  - Service: AJRouter, Path: C:\WINDOWS\system32\svchost.exe -k LocalServiceNetworkRestricted -p
+  - Service: AppHostSvc, Path: C:\WINDOWS\system32\svchost.exe -k apphost
+  - Service: AppIDSvc, Path: C:\WINDOWS\system32\svchost.exe -k LocalServiceNetworkRestricted -p
+  - Service: Appinfo, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: AppMgmt, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: AppReadiness, Path: C:\WINDOWS\System32\svchost.exe -k AppReadiness -p
+  - Service: AppXSvc, Path: C:\WINDOWS\system32\svchost.exe -k wsappx -p
+  - Service: AssignedAccessManagerSvc, Path: C:\WINDOWS\system32\svchost.exe -k AssignedAccessManagerSvc
+  - Service: AudioEndpointBuilder, Path: C:\WINDOWS\System32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: Audiosrv, Path: C:\WINDOWS\System32\svchost.exe -k LocalServiceNetworkRestricted -p
+  - Service: autotimesvc, Path: C:\WINDOWS\system32\svchost.exe -k autoTimeSvc
+  - Service: AxInstSV, Path: C:\WINDOWS\system32\svchost.exe -k AxInstSVGroup
+  - Service: BDESVC, Path: C:\WINDOWS\System32\svchost.exe -k netsvcs -p
+  - Service: BFE, Path: C:\WINDOWS\system32\svchost.exe -k LocalServiceNoNetworkFirewall -p
+  - Service: BITS, Path: C:\WINDOWS\System32\svchost.exe -k netsvcs -p
+  - Service: BrokerInfrastructure, Path: C:\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+  - Service: BTAGService, Path: C:\WINDOWS\system32\svchost.exe -k LocalServiceNetworkRestricted
+  - Service: BthAvctpSvc, Path: C:\WINDOWS\system32\svchost.exe -k LocalService -p
+  - Service: bthserv, Path: C:\WINDOWS\system32\svchost.exe -k LocalService -p
+  - Service: camsvc, Path: C:\WINDOWS\system32\svchost.exe -k osprivacy -p
+  - Service: CDPSvc, Path: C:\WINDOWS\system32\svchost.exe -k LocalService -p
+  - Service: CertPropSvc, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs
+  - Service: ClipSVC, Path: C:\WINDOWS\System32\svchost.exe -k wsappx -p
+  - Service: cloudidsvc, Path: C:\WINDOWS\system32\svchost.exe -k CloudIdServiceGroup -p
+  - Service: CodeMeter.exe, Path: C:\Program Files (x86)\CodeMeter\Runtime\bin\CodeMeter.exe
+  - Service: COMSysApp, Path: C:\WINDOWS\system32\dllhost.exe /Processid:{02D4B3F1-FD88-11D1-960D-00805FC79235}
+  - Service: CoreMessagingRegistrar, Path: C:\WINDOWS\system32\svchost.exe -k LocalServiceNoNetwork -p
+  - Service: CryptSvc, Path: C:\WINDOWS\system32\svchost.exe -k NetworkService -p
+  - Service: CscService, Path: C:\WINDOWS\System32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: DcomLaunch, Path: C:\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+  - Service: dcsvc, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: defragsvc, Path: C:\WINDOWS\system32\svchost.exe -k defragsvc
+  - Service: DeviceAssociationService, Path: C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: DeviceInstall, Path: C:\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+  - Service: DevQueryBroker, Path: C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: Dhcp, Path: C:\WINDOWS\system32\svchost.exe -k LocalServiceNetworkRestricted -p
+  - Service: diagsvc, Path: C:\WINDOWS\System32\svchost.exe -k diagnostics
+  - Service: DiagTrack, Path: C:\WINDOWS\System32\svchost.exe -k utcsvc -p
+  - Service: DialogBlockingService, Path: C:\WINDOWS\system32\svchost.exe -k DialogBlockingService
+  - Service: DispBrokerDesktopSvc, Path: C:\WINDOWS\system32\svchost.exe -k LocalService -p
+  - Service: DisplayEnhancementService, Path: C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: DmEnrollmentSvc, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: dmwappushservice, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: Dnscache, Path: C:\WINDOWS\system32\svchost.exe -k NetworkService -p
+  - Service: DoSvc, Path: C:\WINDOWS\System32\svchost.exe -k NetworkService -p
+  - Service: dot3svc, Path: C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: DPS, Path: C:\WINDOWS\System32\svchost.exe -k LocalServiceNoNetwork -p
+  - Service: DsmSvc, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: DsSvc, Path: C:\WINDOWS\System32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: DusmSvc, Path: C:\WINDOWS\System32\svchost.exe -k LocalServiceNetworkRestricted -p
+  - Service: EapHost, Path: C:\WINDOWS\System32\svchost.exe -k netsvcs -p
+  - Service: EaseUS UPDATE SERVICE, Path: C:\Program Files (x86)\EaseUS\ENS\ensserver.exe
+  - Service: embeddedmode, Path: C:\WINDOWS\System32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: EntAppSvc, Path: C:\WINDOWS\system32\svchost.exe -k appmodel -p
+  - Service: EventLog, Path: C:\WINDOWS\System32\svchost.exe -k LocalServiceNetworkRestricted -p
+  - Service: EventSystem, Path: C:\WINDOWS\system32\svchost.exe -k LocalService -p
+  - Service: fdPHost, Path: C:\WINDOWS\system32\svchost.exe -k LocalService -p
+  - Service: FDResPub, Path: C:\WINDOWS\system32\svchost.exe -k LocalServiceAndNoImpersonation -p
+  - Service: fhsvc, Path: C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: FontCache, Path: C:\WINDOWS\system32\svchost.exe -k LocalService -p
+  - Service: FrameServer, Path: C:\WINDOWS\System32\svchost.exe -k Camera
+  - Service: FrameServerMonitor, Path: C:\WINDOWS\System32\svchost.exe -k CameraMonitor
+  - Service: gpsvc, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: GraphicsPerfSvc, Path: C:\WINDOWS\System32\svchost.exe -k GraphicsPerfSvcGroup
+  - Service: hidserv, Path: C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: HvHost, Path: C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: icssvc, Path: C:\WINDOWS\system32\svchost.exe -k LocalServiceNetworkRestricted -p
+  - Service: IKEEXT, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: InstallService, Path: C:\WINDOWS\System32\svchost.exe -k netsvcs -p
+  - Service: InventorySvc, Path: C:\WINDOWS\system32\svchost.exe -k InvSvcGroup -p
+  - Service: iphlpsvc, Path: C:\WINDOWS\System32\svchost.exe -k NetSvcs -p
+  - Service: IpxlatCfgSvc, Path: C:\WINDOWS\System32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: KtmRm, Path: C:\WINDOWS\System32\svchost.exe -k NetworkServiceAndNoImpersonation -p
+  - Service: LanmanServer, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: LanmanWorkstation, Path: C:\WINDOWS\System32\svchost.exe -k NetworkService -p
+  - Service: lfsvc, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: LicenseManager, Path: C:\WINDOWS\System32\svchost.exe -k LocalService -p
+  - Service: lltdsvc, Path: C:\WINDOWS\System32\svchost.exe -k LocalService -p
+  - Service: lmhosts, Path: C:\WINDOWS\System32\svchost.exe -k LocalServiceNetworkRestricted -p
+  - Service: LSM, Path: C:\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+  - Service: LxpSvc, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs
+  - Service: MapsBroker, Path: C:\WINDOWS\System32\svchost.exe -k NetworkService -p
+  - Service: McpManagementService, Path: C:\WINDOWS\system32\svchost.exe -k McpManagementServiceGroup
+  - Service: MixedRealityOpenXRSvc, Path: C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: mpssvc, Path: C:\WINDOWS\system32\svchost.exe -k LocalServiceNoNetworkFirewall -p
+  - Service: MSiSCSI, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: msiserver, Path: C:\WINDOWS\system32\msiexec.exe /V
+  - Service: MsKeyboardFilter, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: NaturalAuthentication, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: NcaSvc, Path: C:\WINDOWS\System32\svchost.exe -k NetSvcs -p
+  - Service: NcbService, Path: C:\WINDOWS\System32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: NcdAutoSetup, Path: C:\WINDOWS\System32\svchost.exe -k LocalServiceNoNetwork -p
+  - Service: Netman, Path: C:\WINDOWS\System32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: netprofm, Path: C:\WINDOWS\System32\svchost.exe -k netprofm -p
+  - Service: NetSetupSvc, Path: C:\WINDOWS\System32\svchost.exe -k netsvcs -p
+  - Service: NgcCtnrSvc, Path: C:\WINDOWS\system32\svchost.exe -k LocalServiceNetworkRestricted -p
+  - Service: NgcSvc, Path: C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: NlaSvc, Path: C:\WINDOWS\System32\svchost.exe -k netprofm -p
+  - Service: nsi, Path: C:\WINDOWS\system32\svchost.exe -k LocalService -p
+  - Service: p2pimsvc, Path: C:\WINDOWS\System32\svchost.exe -k LocalServicePeerNet
+  - Service: p2psvc, Path: C:\WINDOWS\System32\svchost.exe -k LocalServicePeerNet
+  - Service: PcaSvc, Path: C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: PeerDistSvc, Path: C:\WINDOWS\System32\svchost.exe -k PeerDist
+  - Service: PhoneSvc, Path: C:\WINDOWS\system32\svchost.exe -k LocalService -p
+  - Service: pla, Path: C:\WINDOWS\System32\svchost.exe -k LocalServiceNoNetwork -p
+  - Service: PlugPlay, Path: C:\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+  - Service: PNRPAutoReg, Path: C:\WINDOWS\System32\svchost.exe -k LocalServicePeerNet
+  - Service: PNRPsvc, Path: C:\WINDOWS\System32\svchost.exe -k LocalServicePeerNet
+  - Service: PolicyAgent, Path: C:\WINDOWS\system32\svchost.exe -k NetworkServiceNetworkRestricted -p
+  - Service: Power, Path: C:\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+  - Service: PrintNotify, Path: C:\WINDOWS\system32\svchost.exe -k print
+  - Service: ProfSvc, Path: C:\WINDOWS\system32\svchost.exe -k UserProfileService -p
+  - Service: PushToInstall, Path: C:\WINDOWS\System32\svchost.exe -k netsvcs -p
+  - Service: QWAVE, Path: C:\WINDOWS\system32\svchost.exe -k LocalServiceAndNoImpersonation -p
+  - Service: RasAuto, Path: C:\WINDOWS\System32\svchost.exe -k netsvcs -p
+  - Service: RasMan, Path: C:\WINDOWS\System32\svchost.exe -k netsvcs
+  - Service: RemoteAccess, Path: C:\WINDOWS\System32\svchost.exe -k netsvcs
+  - Service: RemoteRegistry, Path: C:\WINDOWS\system32\svchost.exe -k localService -p
+  - Service: RetailDemo, Path: C:\WINDOWS\System32\svchost.exe -k rdxgroup
+  - Service: RmSvc, Path: C:\WINDOWS\System32\svchost.exe -k LocalServiceNetworkRestricted
+  - Service: RpcEptMapper, Path: C:\WINDOWS\system32\svchost.exe -k RPCSS -p
+  - Service: RpcSs, Path: C:\WINDOWS\system32\svchost.exe -k rpcss -p
+  - Service: SCardSvr, Path: C:\WINDOWS\system32\svchost.exe -k LocalServiceAndNoImpersonation
+  - Service: ScDeviceEnum, Path: C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted
+  - Service: Schedule, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: SCPolicySvc, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs
+  - Service: SDRSVC, Path: C:\WINDOWS\system32\svchost.exe -k SDRSVC
+  - Service: seclogon, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: SEMgrSvc, Path: C:\WINDOWS\system32\svchost.exe -k LocalService -p
+  - Service: SENS, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: SensorService, Path: C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: SensrSvc, Path: C:\WINDOWS\system32\svchost.exe -k LocalServiceAndNoImpersonation -p
+  - Service: SessionEnv, Path: C:\WINDOWS\System32\svchost.exe -k netsvcs -p
+  - Service: SharedAccess, Path: C:\WINDOWS\System32\svchost.exe -k netsvcs -p
+  - Service: SharedRealitySvc, Path: C:\WINDOWS\system32\svchost.exe -k LocalService -p
+  - Service: ShellHWDetection, Path: C:\WINDOWS\System32\svchost.exe -k netsvcs -p
+  - Service: shpamsvc, Path: C:\WINDOWS\System32\svchost.exe -k netsvcs -p
+  - Service: smphost, Path: C:\WINDOWS\System32\svchost.exe -k smphost
+  - Service: SmsRouter, Path: C:\WINDOWS\system32\svchost.exe -k LocalServiceNetworkRestricted -p
+  - Service: SSDPSRV, Path: C:\WINDOWS\system32\svchost.exe -k LocalServiceAndNoImpersonation -p
+  - Service: SstpSvc, Path: C:\WINDOWS\system32\svchost.exe -k LocalService -p
+  - Service: StateRepository, Path: C:\WINDOWS\system32\svchost.exe -k appmodel -p
+  - Service: StiSvc, Path: C:\WINDOWS\system32\svchost.exe -k imgsvc
+  - Service: StorSvc, Path: C:\WINDOWS\System32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: svsvc, Path: C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: swprv, Path: C:\WINDOWS\System32\svchost.exe -k swprv
+  - Service: SysMain, Path: C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: SystemEventsBroker, Path: C:\WINDOWS\system32\svchost.exe -k DcomLaunch -p
+  - Service: TapiSrv, Path: C:\WINDOWS\System32\svchost.exe -k NetworkService -p
+  - Service: TermService, Path: C:\WINDOWS\System32\svchost.exe -k NetworkService
+  - Service: TextInputManagementService, Path: C:\WINDOWS\System32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: Themes, Path: C:\WINDOWS\System32\svchost.exe -k netsvcs -p
+  - Service: TimeBrokerSvc, Path: C:\WINDOWS\system32\svchost.exe -k LocalServiceNetworkRestricted -p
+  - Service: TokenBroker, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: TrkWks, Path: C:\WINDOWS\System32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: TroubleshootingSvc, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: tzautoupdate, Path: C:\WINDOWS\system32\svchost.exe -k LocalService -p
+  - Service: UmRdpService, Path: C:\WINDOWS\System32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: upnphost, Path: C:\WINDOWS\system32\svchost.exe -k LocalServiceAndNoImpersonation -p
+  - Service: UserManager, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: UsoSvc, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: VacSvc, Path: C:\WINDOWS\System32\svchost.exe -k LocalServiceNetworkRestricted -p
+  - Service: vmicguestinterface, Path: C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: vmicheartbeat, Path: C:\WINDOWS\system32\svchost.exe -k ICService -p
+  - Service: vmickvpexchange, Path: C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: vmicrdv, Path: C:\WINDOWS\system32\svchost.exe -k ICService -p
+  - Service: vmicshutdown, Path: C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: vmictimesync, Path: C:\WINDOWS\system32\svchost.exe -k LocalServiceNetworkRestricted -p
+  - Service: vmicvmsession, Path: C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: vmicvss, Path: C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: W32Time, Path: C:\WINDOWS\system32\svchost.exe -k LocalService
+  - Service: w3logsvc, Path: C:\WINDOWS\system32\svchost.exe -k apphost
+  - Service: W3SVC, Path: C:\WINDOWS\system32\svchost.exe -k iissvcs
+  - Service: WaaSMedicSvc, Path: C:\WINDOWS\system32\svchost.exe -k wusvcs -p
+  - Service: WalletService, Path: C:\WINDOWS\System32\svchost.exe -k appmodel -p
+  - Service: WarpJITSvc, Path: C:\WINDOWS\System32\svchost.exe -k LocalServiceNetworkRestricted
+  - Service: WAS, Path: C:\WINDOWS\system32\svchost.exe -k iissvcs
+  - Service: WbioSrvc, Path: C:\WINDOWS\system32\svchost.exe -k WbioSvcGroup
+  - Service: Wcmsvc, Path: C:\WINDOWS\system32\svchost.exe -k LocalServiceNetworkRestricted -p
+  - Service: wcncsvc, Path: C:\WINDOWS\System32\svchost.exe -k LocalServiceAndNoImpersonation -p
+  - Service: WdiServiceHost, Path: C:\WINDOWS\System32\svchost.exe -k LocalService -p
+  - Service: WdiSystemHost, Path: C:\WINDOWS\System32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: WebClient, Path: C:\WINDOWS\system32\svchost.exe -k LocalService -p
+  - Service: webthreatdefsvc, Path: C:\WINDOWS\system32\svchost.exe -k WebThreatDefense -p
+  - Service: Wecsvc, Path: C:\WINDOWS\system32\svchost.exe -k NetworkService -p
+  - Service: WEPHOSTSVC, Path: C:\WINDOWS\system32\svchost.exe -k WepHostSvcGroup
+  - Service: wercplsupport, Path: C:\WINDOWS\System32\svchost.exe -k netsvcs -p
+  - Service: WerSvc, Path: C:\WINDOWS\System32\svchost.exe -k WerSvcGroup
+  - Service: WFDSConMgrSvc, Path: C:\WINDOWS\system32\svchost.exe -k LocalServiceNetworkRestricted -p
+  - Service: WiaRpc, Path: C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: WinHttpAutoProxySvc, Path: C:\WINDOWS\system32\svchost.exe -k LocalServiceNetworkRestricted -p
+  - Service: Winmgmt, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: WinRM, Path: C:\WINDOWS\System32\svchost.exe -k NetworkService -p
+  - Service: WirelessBackupService, Path: D:\DrFone\Wondershare\Dr.Fone - Data Recovery (iOS)\Addins\Recovery\WirelessBackupService.exe
+  - Service: wisvc, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: WlanSvc, Path: C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: wlidsvc, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: wlpasvc, Path: C:\WINDOWS\system32\svchost.exe -k LocalServiceNetworkRestricted -p
+  - Service: WManSvc, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: workfolderssvc, Path: C:\WINDOWS\System32\svchost.exe -k LocalService -p
+  - Service: WpcMonSvc, Path: C:\WINDOWS\system32\svchost.exe -k LocalService
+  - Service: WPDBusEnum, Path: C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted
+  - Service: WpnService, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: wscsvc, Path: C:\WINDOWS\System32\svchost.exe -k LocalServiceNetworkRestricted -p
+  - Service: WSearch, Path: C:\WINDOWS\system32\SearchIndexer.exe /Embedding
+  - Service: wuauserv, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: WwanSvc, Path: C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: XblAuthManager, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: XblGameSave, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: XboxGipSvc, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: XboxNetApiSvc, Path: C:\WINDOWS\system32\svchost.exe -k netsvcs -p
+  - Service: AarSvc_18d295, Path: C:\WINDOWS\system32\svchost.exe -k AarSvcGroup -p
+  - Service: BcastDVRUserService_18d295, Path: C:\WINDOWS\system32\svchost.exe -k BcastDVRUserService
+  - Service: BluetoothUserService_18d295, Path: C:\WINDOWS\system32\svchost.exe -k BthAppGroup -p
+  - Service: CaptureService_18d295, Path: C:\WINDOWS\system32\svchost.exe -k LocalService -p
+  - Service: cbdhsvc_18d295, Path: C:\WINDOWS\system32\svchost.exe -k ClipboardSvcGroup -p
+  - Service: CDPUserSvc_18d295, Path: C:\WINDOWS\system32\svchost.exe -k UnistackSvcGroup
+  - Service: CloudBackupRestoreSvc_18d295, Path: C:\WINDOWS\system32\svchost.exe -k UnistackSvcGroup
+  - Service: ConsentUxUserSvc_18d295, Path: C:\WINDOWS\system32\svchost.exe -k DevicesFlow
+  - Service: DeviceAssociationBrokerSvc_18d295, Path: C:\WINDOWS\system32\svchost.exe -k DevicesFlow -p
+  - Service: DevicePickerUserSvc_18d295, Path: C:\WINDOWS\system32\svchost.exe -k DevicesFlow
+  - Service: DevicesFlowUserSvc_18d295, Path: C:\WINDOWS\system32\svchost.exe -k DevicesFlow
+  - Service: MessagingService_18d295, Path: C:\WINDOWS\system32\svchost.exe -k UnistackSvcGroup
+  - Service: NPSMSvc_18d295, Path: C:\WINDOWS\system32\svchost.exe -k LocalService -p
+  - Service: OneSyncSvc_18d295, Path: C:\WINDOWS\system32\svchost.exe -k UnistackSvcGroup
+  - Service: P9RdrService_18d295, Path: C:\WINDOWS\system32\svchost.exe -k P9RdrService -p
+  - Service: PenService_18d295, Path: C:\WINDOWS\system32\svchost.exe -k PenService
+  - Service: PimIndexMaintenanceSvc_18d295, Path: C:\WINDOWS\system32\svchost.exe -k UnistackSvcGroup
+  - Service: PrintWorkflowUserSvc_18d295, Path: C:\WINDOWS\system32\svchost.exe -k PrintWorkflow
+  - Service: UdkUserSvc_18d295, Path: C:\WINDOWS\system32\svchost.exe -k UdkSvcGroup
+  - Service: UnistoreSvc_18d295, Path: C:\WINDOWS\System32\svchost.exe -k UnistackSvcGroup
+  - Service: UserDataSvc_18d295, Path: C:\WINDOWS\system32\svchost.exe -k UnistackSvcGroup
+  - Service: webthreatdefusersvc_18d295, Path: C:\WINDOWS\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+  - Service: WpnUserService_18d295, Path: C:\WINDOWS\system32\svchost.exe -k UnistackSvcGroup
+
+[11] Checking Windows Update Settings...
+Automatic Updates Enabled: Yes
+PASS: Automatic updates are enabled.
+
+[12] Checking Last 5 Installed Updates...
+Installed KB: KB5058405 - Installed On: 05/18/2025 00:00:00
+Installed KB: KB5058528 - Installed On: 05/14/2025 00:00:00
+Installed KB: KB5054980 - Installed On: 04/20/2025 00:00:00
+Installed KB: KB5027397 - Installed On: 12/06/2024 00:00:00
+
+[13] Checking Windows Update Services...
+Service: wuauserv - Status: Running
+PASS: Service wuauserv is running.
+Service: bits - Status: Stopped
+WARNING: Service bits is not running. Recommended to start it with: Start-Service -Name bits
+
+[14] Checking BitLocker Status...
+BitLocker - C:: Protection On
+BitLocker - D:: Protection On
+
+[15] Checking Startup Items...
+Startup Item: Send to OneNote.lnk
+
+[16] Checking Scheduled Tasks...
+Scheduled Task: DCAgentUpdater (Path: \)
+Scheduled Task: EPSON L6190 Series Update {7F75B56E-00DB-4572-B2E7-25F667864E15} (Path: \)
+Scheduled Task: MicrosoftEdgeUpdateTaskMachineCore (Path: \)
+Scheduled Task: MicrosoftEdgeUpdateTaskMachineUA (Path: \)
+Scheduled Task: MicrosoftEdgeUpdateTaskUserS-1-5-21-1024140313-2533880112-1715196945-80957Core{67B97B3B-99D7-4590-A0A8-0CCB3B4E441E} (Path: \)
+Scheduled Task: MicrosoftEdgeUpdateTaskUserS-1-5-21-1024140313-2533880112-1715196945-80957UA{6CE6C6B8-81A3-4F34-8476-7F96C0F46443} (Path: \)
+Scheduled Task: npcapwatchdog (Path: \)
+Scheduled Task: OneDrive Per-Machine Standalone Update Task (Path: \)
+Scheduled Task: OneDrive Reporting Task-S-1-5-21-1024140313-2533880112-1715196945-105406 (Path: \)
+Scheduled Task: OneDrive Reporting Task-S-1-5-21-1024140313-2533880112-1715196945-80957 (Path: \)
+Scheduled Task: OneDrive Reporting Task-S-1-5-21-179637643-3717319949-2446295845-1007 (Path: \)
+Scheduled Task: OneDrive Reporting Task-S-1-5-21-179637643-3717319949-2446295845-1010 (Path: \)
+Scheduled Task: OneDrive Reporting Task-S-1-5-21-179637643-3717319949-2446295845-1013 (Path: \)
+Scheduled Task: OneDrive Reporting Task-S-1-5-21-179637643-3717319949-2446295845-500 (Path: \)
+Scheduled Task: OneDrive Startup Task-S-1-5-21-1024140313-2533880112-1715196945-105406 (Path: \)
+Scheduled Task: OneDrive Startup Task-S-1-5-21-179637643-3717319949-2446295845-1007 (Path: \)
+Scheduled Task: OneDrive Startup Task-S-1-5-21-179637643-3717319949-2446295845-1010 (Path: \)
+Scheduled Task: OneDrive Startup Task-S-1-5-21-179637643-3717319949-2446295845-1013 (Path: \)
+Scheduled Task: OneDrive Startup Task-S-1-5-21-179637643-3717319949-2446295845-500 (Path: \)
+Scheduled Task: SensorFramework-LogonTask-{100ee514-48c8-f419-6760-6fb8cb2767cd} (Path: \)
+Scheduled Task: ZoomUpdateTaskUser-S-1-5-21-1024140313-2533880112-1715196945-105406 (Path: \)
+Scheduled Task: S-1-5-21-1024140313-2533880112-1715196945-80957 (Path: \Agent Activation Runtime\)
+Scheduled Task: GoogleUpdaterTaskSystem138.0.7194.0{0D595C8F-5E97-4FB9-AF21-5B43273C33C2} (Path: \GoogleSystem\GoogleUpdater\)
+Scheduled Task: Firefox Background Update S-1-5-21-1024140313-2533880112-1715196945-105406 756F6794050DBCC6 (Path: \Mozilla\)
+Scheduled Task: Firefox Default Browser Agent 756F6794050DBCC6 (Path: \Mozilla\)
+
+[17] Checking Installed Applications...
+Installed App: 7-Zip 23.01 (x64)
+Installed App: CrowdStrike Device Control
+Installed App: CrowdStrike Firmware Analysis
+Installed App: CrowdStrike Sensor Platform
+Installed App: CrowdStrike Windows Sensor
+Installed App: DefaultPackMSI
+Installed App: Epson FAX Utility
+Installed App: EPSON L6190 Series Printer Uninstall
+Installed App: EPSON Manuals
+Installed App: Epson PC-FAX Driver
+Installed App: Epson Scan 2
+Installed App: Epson Software Updater
+Installed App: EpsonNet Print
+Installed App: FortiClient VPN
+Installed App: GlobalProtect
+Installed App: Google Chrome
+Installed App: Google Drive
+Installed App: Google Update Helper
+Installed App: HP System Default Settings
+Installed App: Java(TM) SE Development Kit 17.0.12 (64-bit)
+Installed App: Java(TM) SE Development Kit 23.0.1 (64-bit)
+Installed App: ManageEngine Endpoint Central - Agent
+Installed App: Microsoft .NET Host - 7.0.20 (x64)
+Installed App: Microsoft .NET Host - 8.0.16 (x64)
+Installed App: Microsoft .NET Host FX Resolver - 7.0.20 (x64)
+Installed App: Microsoft .NET Host FX Resolver - 8.0.16 (x64)
+Installed App: Microsoft .NET Runtime - 7.0.20 (x64)
+Installed App: Microsoft .NET Runtime - 8.0.16 (x64)
+Installed App: Microsoft .NET Runtime - 8.0.16 (x64)
+Installed App: Microsoft 365 Apps for enterprise - en-us
+Installed App: Microsoft ASP.NET Core 7.0.20 - Shared Framework (x86)
+Installed App: Microsoft ASP.NET Core 7.0.20 Shared Framework (x86)
+Installed App: Microsoft Azure Storage Explorer version 1.36.2
+Installed App: Microsoft Edge
+Installed App: Microsoft Edge WebView2 Runtime
+Installed App: Microsoft Intune Management Extension
+Installed App: Microsoft OneDrive
+Installed App: Microsoft Search in Bing
+Installed App: Microsoft Teams Meeting Add-in for Microsoft Office
+Installed App: Microsoft Update Health Tools
+Installed App: Microsoft Visual C++ 2005 Redistributable
+Installed App: Microsoft Visual C++ 2005 Redistributable (x64)
+Installed App: Microsoft Visual C++ 2005 Redistributable (x64)
+Installed App: Microsoft Visual C++ 2008 Redistributable - x64 9.0.21022
+Installed App: Microsoft Visual C++ 2008 Redistributable - x64 9.0.30729.6161
+Installed App: Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.6161
+Installed App: Microsoft Visual C++ 2010  x64 Redistributable - 10.0.40219
+Installed App: Microsoft Visual C++ 2010  x86 Redistributable - 10.0.40219
+Installed App: Microsoft Visual C++ 2012 Redistributable (x86) - 11.0.61030
+Installed App: Microsoft Visual C++ 2012 x86 Additional Runtime - 11.0.61030
+Installed App: Microsoft Visual C++ 2012 x86 Minimum Runtime - 11.0.61030
+Installed App: Microsoft Visual C++ 2015-2022 Redistributable (x64) - 14.36.32532
+Installed App: Microsoft Visual C++ 2015-2022 Redistributable (x86) - 14.36.32532
+Installed App: Microsoft Visual C++ 2022 X64 Additional Runtime - 14.36.32532
+Installed App: Microsoft Visual C++ 2022 X64 Minimum Runtime - 14.36.32532
+Installed App: Microsoft Visual C++ 2022 X86 Additional Runtime - 14.36.32532
+Installed App: Microsoft Visual C++ 2022 X86 Minimum Runtime - 14.36.32532
+Installed App: Microsoft Web Deploy 4.0
+Installed App: Microsoft Windows Desktop Runtime - 7.0.20 (x64)
+Installed App: Microsoft Windows Desktop Runtime - 7.0.20 (x64)
+Installed App: Mozilla Firefox (x64 en-US)
+Installed App: Mozilla Maintenance Service
+Installed App: Nmap 7.94
+Installed App: Notepad++ (64-bit x64)
+Installed App: Npcap
+Installed App: Office 16 Click-to-Run Extensibility Component
+Installed App: Office 16 Click-to-Run Licensing Component
+Installed App: PuTTY release 0.78 (64-bit)
+Installed App: Realtek USB Audio
+Installed App: Samsung USB Driver for Mobile Phones
+Installed App: Tenable Nessus (x64)
+Installed App: TeraCopy
+Installed App: VMware Workstation
+Installed App: vs_CoreEditorFonts
+Installed App: Windscribe
+Installed App: WinHTTrack Website Copier 3.49-2 (x64)
+Installed App: WinRAR 6.22 (64-bit)
+Installed App: WinSCP 6.1.1
+
+Audit completed. Report saved to: C:\Temp\SecurityAuditReport_20250611_141138.txt
 
