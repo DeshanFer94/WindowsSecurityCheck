@@ -72,7 +72,7 @@ PASS: UAC is enabled.
 [3] Checking SMBv1 Status...
 WARNING: SMBv1 is enabled. Recommended to disable it due to security vulnerabilities with: Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
 
-Troubleshooting
+# Troubleshooting
 
 Script Fails to Run:
 Ensure PowerShell is running as Administrator.
