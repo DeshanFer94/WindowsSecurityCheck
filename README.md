@@ -32,7 +32,7 @@ Modules: No additional modules are required, but the BitLocker check requires th
 # Installation
 Download the Script:
 Clone the repository or download Windows_Audit.ps1 from the GitHub releases.
-it clone https://github.com/<your-username>/windows-security-audit.git
+it clone https://github.com/DeshanFer94/WindowsSecurityCheck.git
 Save the Script:
 Place Windows_Audit.ps1 in a directory (e.g., D:\Checklists\Windows_Audit\).
 
